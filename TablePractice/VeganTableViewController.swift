@@ -20,15 +20,15 @@ class VeganTableViewController: UITableViewController {
         cacti(id: 1,
               title: "Kacey Musgraves",
             text: "Kacey Musgraves is a five time Grammy Award winning Artist.",
-            image: "Kacey Country Gal"),
+            image: "Kacey"),
         cacti(id: 2,
               title: "Stevie Nicks",
             text: "Stevie Nicks is a former member of the rock band Fleetwood Mac.",
-            image: "Stevie being a queen"),
+            image: "Stevie"),
         cacti(id: 3,
               title: "Taylor Swift",
               text: "Taylor Swift is the daughter of Scott and Andrea Swift",
-              image: "Taylor with Benjamin Button")
+              image: "Taylor")
     ]
     
 
@@ -48,12 +48,14 @@ class VeganTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-
         cell.textLabel?.text = allMusic[indexPath.row].title
+        cell.detailTextLabel?.text = allMusic[indexPath.row].text
+        cell.imageView?.image = UIImage(named:allMusic[indexPath.row].image)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return "Section \(section)"
     }
 
